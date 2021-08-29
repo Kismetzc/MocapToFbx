@@ -225,30 +225,30 @@ class CMUSkeleton(object):
                 z_dir = pose[joint_idx] - pose[index['Spine']]
                 order = 'zyx'
             elif joint == 'Neck1':
-                x_dir = pose[index['Spine1']] - pose[joint_idx]
-                y_dir = None
+                x_dir = None
+                y_dir = pose[index['Spine1']] - pose[joint_idx]
                 z_dir = pose[index['HeadEndSite']] - pose[index['Spine1']]
-                order = 'zyx'
+                order = 'zxy'
             elif joint == 'LeftArm':
-                x_dir = pose[index['LeftForeArm']] - pose[index['LeftHand']]
-                y_dir = None
-                z_dir = pose[index['LeftForeArm']] - pose[joint_idx]
-                order = 'zyx'
+                x_dir = pose[index['LeftForeArm']] - pose[joint_idx]
+                y_dir = pose[index['LeftForeArm']] - pose[index['LeftHand']]
+                z_dir = None
+                order = 'xzy'
             elif joint == 'LeftForeArm':
-                x_dir = pose[joint_idx] - pose[index['LeftArm']]
-                y_dir = None
-                z_dir = pose[index['LeftHand']] - pose[joint_idx]
-                order = 'zyx'
+                x_dir = pose[index['LeftHand']] - pose[joint_idx]
+                y_dir = pose[joint_idx] - pose[index['LeftArm']]
+                z_dir = None
+                order = 'xzy'
             elif joint == 'RightArm':
-                x_dir = pose[index['RightForeArm']] - pose[index['RightHand']]
-                y_dir = None
-                z_dir = pose[joint_idx] - pose[index['RightForeArm']]
-                order = 'zyx'
+                x_dir = pose[joint_idx] - pose[index['RightForeArm']]
+                y_dir = pose[index['RightForeArm']] - pose[index['RightHand']]
+                z_dir = None
+                order = 'xzy'
             elif joint == 'RightForeArm':
-                x_dir = pose[joint_idx] - pose[index['RightArm']]
-                y_dir = None
-                z_dir = pose[joint_idx] - pose[index['RightHand']]
-                order = 'zyx'
+                x_dir = pose[joint_idx] - pose[index['RightHand']]
+                y_dir = pose[joint_idx] - pose[index['RightArm']]
+                z_dir = None
+                order = 'xzy'
             
             if order:
                 dcm = math3d.dcm_from_axis(x_dir, y_dir, z_dir, order)
