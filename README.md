@@ -6,5 +6,6 @@ Conversion to BVH is based on code from [video2bvh](https://github.com/KevinLTT/
 
 ## Run
 
+```python
 python output2bvh.py  [input].npy   [output].bvh
-
+```
